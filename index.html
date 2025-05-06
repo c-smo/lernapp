@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fachprüfung Lern-App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>Fachprüfung Lern-App</h1>
+            <button id="theme-toggle-btn" class="theme-toggle" aria-label="Toggle Dark Mode">
+                <span class="icon-sun">☀️</span>
+                <span class="icon-moon hidden">🌙</span>
+            </button>
+        </header>
+
+        <main id="main-content">
+            <section id="main-menu-section" class="menu-section">
+                 <div class="bereich-filter">
+                    <label for="bereich-select">Themenbereich wählen:</label>
+                    <select id="bereich-select">
+                        <option value="alle">Alle Bereiche</option>
+                    </select>
+                </div>
+                
+                <div id="progress-info" class="progress-info">
+                    <p>Fortschritt <span id="current-bereich-name">Alle Bereiche</span>:</p>
+                    
+                    <div id="segmented-progress-bar" class="progress-bar-container segmented"> 
+                    </div> 
+                    
+                    <p class="progress-summary">
+                        <span id="learned-count">0</span> / <span id="bereich-total-count">0</span> Karten gelernt
+                    </p>
+                    <p class="mastered-summary">
+                        Davon <span id="gemeistert-count">0</span> gemeistert (3x richtig)
+                    </p>
+                </div>
+                <button id="start-learning-btn" class="mode-button">Lernen starten</button>
+                <button id="reset-progress-btn" class="utility-button">Lernfortschritt zurücksetzen</button>
+            </section>
+
+            <section id="flashcard-section" class="learning-section hidden">
+                <div class="question-count">Karte <span id="current-q-number">1</span> von <span id="total-q-number">X</span> (<span id="q-id-display">ID: 0</span>)</div>
+                <div class="card-container">
+                    <div id="flashcard" class="card">
+                        <div class="card-face card-front">
+                            <h3 id="question-bereich-title">Bereich</h3>
+                            <div id="question-text">Fragetext hier...</div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div id="answer-text">Antworttext hier...</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flashcard-controls">
+                    <button id="show-answer-btn">Antwort zeigen</button>
+                    <div id="mark-controls" class="hidden mark-controls">
+                        <button id="mark-correct-btn" class="mark-button correct">👍 Richtig</button>
+                        <button id="mark-repeat-btn" class="mark-button repeat">🔁 Wiederholen</button>
+                    </div>
+                </div>
+                 <button class="back-to-menu-btn utility-button">Zurück zum Menü</button>
+            </section>
+        </main>
+    </div>
+
+    <script src="data.js"></script>
+    <script src="domElements.js"></script>
+    <script src="state.js"></script>
+    <script src="ui.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
